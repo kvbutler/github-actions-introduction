@@ -1,0 +1,18 @@
+name: Hello world
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello Linux
+        run: |
+          echo "Hello World! I'm running on a $(uname -mo) VM."
+  windows:
+    runs-on: windows-latest
+    steps:
+      - name: Hello Windows
+        shell: pwsh
+        run: |
+          $os=[System.Environment]::OSVersion.Version
+          $cpuArch=$env:PROCESSOR_ARCHITECTURE
+          Write-Host "Hello World! I'm running on a $cpuArch Windows $($os.Major).$($os.Build) VM."
+
