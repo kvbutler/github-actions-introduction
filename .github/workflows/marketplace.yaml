@@ -1,15 +1,15 @@
 name: Teams notification
 on:
   push:
-      branches: [ main ]
+    branches: [ main ]
   pull_request:
-      branches: [ main ]
+    branches: [ main ]
 jobs:
   build:
-      runs-on: ubuntu-latest
-      steps:
-      - name: Build XYZ
-        run: echo TODO
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build XYZ
+      run: echo TODO
   notify:
       runs-on: ubuntu-latest
       if: always()
