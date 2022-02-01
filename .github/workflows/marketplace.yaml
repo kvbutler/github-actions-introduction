@@ -15,9 +15,11 @@ jobs:
       if: always()
       needs: build
       steps:
-        - name: Send a Notification
-          id: notify
-          uses: thechetantalwar/teams-notify@v2
-          with:
-            teams_webhook_url: ${{ secrets.TEAM_HOOK }}
-            message: "Github Action Build Number ${{ github.run_number }} Completed for ${{ github.repository }} and the outcome is ${{ needs.build.result }}."
+      - name: Send notification
+        uses: jdcargile/ms-teams-notification@v1.3
+        with:
+          github-token: ${{ github.token }}
+          ms-teams-webhook-uri: ${{ secrets.TEAM_HOOK }}
+          notification-summary: "Github Action Build Number ${{ github.run_number }} Completed for ${{ github.repository }} and the outcome is ${{ needs.build.result }}."
+          notification-color: 17a2b8
+          timezone: America/New_York
