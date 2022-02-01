@@ -16,10 +16,7 @@ jobs:
       needs: build
       steps:
       - name: Send notification
-        uses: jdcargile/ms-teams-notification@v1.3
+        uses: toko-bifrost/ms-teams-deploy-card@master #  or "./" if in a local set-up
         with:
           github-token: ${{ github.token }}
-          ms-teams-webhook-uri: ${{ secrets.TEAM_HOOK }}
-          notification-summary: "Github Action Build Number ${{ github.run_number }} Completed for ${{ github.repository }} and the outcome is ${{ needs.build.result }}."
-          notification-color: 17a2b8
-          timezone: America/New_York
+          webhook-uri: ${{ secrets.TEAM_HOOK }}
