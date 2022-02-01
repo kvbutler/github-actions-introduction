@@ -10,13 +10,13 @@ jobs:
     steps:
     - name: Build XYZ
       run: echo TODO
-  notify:
-      runs-on: ubuntu-latest
-      if: always()
-      needs: build
-      steps:
-      - name: Send notification
-        uses: toko-bifrost/ms-teams-deploy-card@master #  or "./" if in a local set-up
-        with:
-          github-token: ${{ github.token }}
-          webhook-uri: ${{ secrets.TEAM_HOOK }}
+  # notify:
+  #     runs-on: ubuntu-latest
+  #     if: always()
+  #     needs: build
+  #     steps:
+  #     - name: Send notification
+  #       uses: toko-bifrost/ms-teams-deploy-card@master #  or "./" if in a local set-up
+  #       with:
+  #         github-token: ${{ github.token }}
+  #         webhook-uri: ${{ secrets.TEAM_HOOK }}
